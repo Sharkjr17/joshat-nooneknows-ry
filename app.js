@@ -21,6 +21,7 @@ const nextMonthButton = document.getElementById("next-month-button");
 //Hide game screens on start
 overviewScreen.style.display = "none";
 
+
 //Hide intro screen on start button use
 startButton.addEventListener("click", function() {
     startButton.disabled = true;
@@ -28,11 +29,18 @@ startButton.addEventListener("click", function() {
     overviewScreen.style.display = 'block';
 });
 
+
+
+//Clicking "Next month" button
 nextMonthButton.addEventListener("click", function() {
+
+    //Calculate new national figures
     gdp += gdp * 0.00175;
     pop += pop * 0.00150;
     gpc = gdp / pop;
-    gdpLabel.innerText = "CURRENT GDP : " + gdp + " (" + 0 + "% YoY Last Quarter)";
-    popLabel.innerText = "POPULATION : " + pop;
+
+    //Change labels to reflect changes in national figures
+    gdpLabel.innerText = "CURRENT GDP : " + Math.round(gdp) + " ($" + (Math.round(gdp / 1000000000) / 1000) + " Trillion, " + 0 + "% YoY Last Quarter)";
+    popLabel.innerText = "POPULATION : " + Math.round(pop) + " (" + (Math.round(pop / 1000) / 1000) + " Million)";
     gpcLabel.innerText = "GDP PER CAPITA : " + gpc;
 });
