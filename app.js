@@ -3,6 +3,8 @@ var gdp = 30600000000000;
 var pop = 342000000;
 var gpc = gdp / pop;
 
+var growthFactor = 1;
+
 //Get stuff from intro screen
 const startButton = document.getElementById("start-button");
 const introScreen = document.getElementById("intro-screen-contents");
@@ -35,12 +37,20 @@ startButton.addEventListener("click", function() {
 nextMonthButton.addEventListener("click", function() {
 
     //Calculate new national figures
-    gdp += gdp * 0.00175;
+
+    //GDP (Increase by monthly factor using random noise and growth factor)
+    const annualRate = Math.random() * ((0.012 * growthFactor) - (0.008 * growthFactor)) + 0.008;
+    const monthlyFactor = Math.pow(1 + annualRate, 1 / 12);
+    gdp = gdp * monthlyFactor;
+
+    //Population
     pop += pop * 0.00150;
+
+    //GDP per capita
     gpc = gdp / pop;
 
-    //Change labels to reflect changes in national figures
-    gdpLabel.innerText = "CURRENT GDP : " + Math.round(gdp) + " ($" + (Math.round(gdp / 1000000000) / 1000) + " Trillion, " + 0 + "% YoY Last Quarter)";
+    //Change labels to reflect changes in national figures (Very complicated do not touch)
+    gdpLabel.innerText = "CURRENT GDP : " + Math.round(gdp) + " ($" + (Math.round(gdp / 1000000000) / 1000) + " Trillion, " + (Math.round(annualRate * 100000) / 1000) + "% YoY Last Month)";
     popLabel.innerText = "POPULATION : " + Math.round(pop) + " (" + (Math.round(pop / 1000) / 1000) + " Million)";
-    gpcLabel.innerText = "GDP PER CAPITA : " + gpc;
+    gpcLabel.innerText = "GDP PER CAPITA : " + Math.round(gpc) + " ($" + Math.round(gpc).toLocaleString() + " per capita)";
 });
