@@ -11,6 +11,7 @@ const introScreen = document.getElementById("intro-screen-contents");
 
 //Get game screens
 const overviewScreen = document.getElementById("overview-screen");
+const eventScreen = document.getElementById("event-screen");
 
 //Get text labels
 const gdpLabel = document.getElementById("gdp-label");
@@ -22,7 +23,7 @@ const nextMonthButton = document.getElementById("next-month-button");
 
 //Hide game screens on start
 overviewScreen.style.display = "none";
-
+eventScreen.style.display = "none";
 
 //Hide intro screen on start button use
 startButton.addEventListener("click", function() {
@@ -50,7 +51,11 @@ nextMonthButton.addEventListener("click", function() {
     gpc = gdp / pop;
 
     //Change labels to reflect changes in national figures (Very complicated do not touch)
-    gdpLabel.innerText = "CURRENT GDP : " + Math.round(gdp) + " ($" + (Math.round(gdp / 1000000000) / 1000) + " Trillion, " + (Math.round(annualRate * 100000) / 1000) + "% YoY Last Month)";
+    gdpLabel.innerText = "CURRENT GDP : " + Math.round(gdp) + " ($" + (Math.round(gdp / 1000000000) / 1000) + " Trillion, " + ((Math.round(annualRate - 1) * 100000) / 1000) + "% YoY Last Month)";
     popLabel.innerText = "POPULATION : " + Math.round(pop) + " (" + (Math.round(pop / 1000) / 1000) + " Million)";
     gpcLabel.innerText = "GDP PER CAPITA : " + Math.round(gpc) + " ($" + Math.round(gpc).toLocaleString() + " per capita)";
+
+    //Hide overview screen and show event screen
+    overviewScreen.style.display = "none";
+    eventScreen.style.display = "block";
 });
