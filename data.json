@@ -1,0 +1,18 @@
+{
+    "Event 0": {
+        "Title": "ECONOMIC TURBULENCE",
+        "Subtitle": "TROUBLE IN VEHICLE MARKETS",
+        "Description": "A recent downturn in the sales of trucks might impact automotive and related industries.",
+        "Image": "fordf150.webp",
+        "Option 1": "Subsidize the industry",
+        "Option 2": "Let the markets flow"
+    },
+    "Event 1": {
+        "Title": "SCANDAL",
+        "Subtitle": "SENATOR CAUGHT IN SEXUAL ABUSE ALLEGATIONS",
+        "Description": "Doh.",
+        "Image": "fordf150.webp",
+        "Option 1": "Callout senator publicly",
+        "Option 2": "Let oversight committee do nothing lmao"
+    }
+}
