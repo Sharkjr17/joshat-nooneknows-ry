@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<events>
+    <template>
+        <title></title>
+        <subtitle></subtitle>
+        <description></description>
+        <image></image>
+        <option-1></option-1>
+        <option-2></option-2>
+    </template>
+    <0>
+        <title>TURBULENCE</title>
+        <subtitle>OH THE ECONOMY!</subtitle>
+        <description>It's over.</description>
+        <image>bundy.jpg</image>
+        <option-1>Die</option-1>
+        <option-2>Don't die pls...</option-2>
+    </0>
+</events>
